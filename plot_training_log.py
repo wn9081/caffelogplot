@@ -12,8 +12,10 @@ import matplotlib.legend as lgd
 import matplotlib.markers as mks
 
 def get_log_parsing_script():
-    dirname = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-    return dirname + '/parse_log.sh'
+    dirname = os.environ.get('PLOT_TRAINING_LOG_DIR', None)
+    if dirname is None:
+        dirname = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+    return os.path.join(dirname,'parse_log.sh')
 
 def get_log_file_suffix():
     return '.log'

@@ -130,4 +130,15 @@ def application(environ, start_response):
         )
         return [body.encode('utf8')]
 
+if __name__ == '__main__':
+    import inspect
+    os.environ.update({'PLOT_TRAINING_LOG_DIR':
+        os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))})
+    from wsgiref.simple_server import make_server
+    httpd = make_server('', 8000, application)
+    print "Serving on port 8000..."
+ 
+    # Serve until process is killed
+    httpd.serve_forever()
+
 
