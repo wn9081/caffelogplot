@@ -2,7 +2,9 @@
 =========
 入口就是 `plot_training_log.py`。
 用例：
-  `./plot_training_log.py 6 ./output.png ./faster_rcnn_end2end_VGG16_.txt.2016-11-18_16-08-37.log`
+```
+./plot_training_log.py 6 ./output.png ./faster_rcnn_end2end_VGG16_.txt.2016-11-18_16-08-37.log
+```
 
 
 网络服务
